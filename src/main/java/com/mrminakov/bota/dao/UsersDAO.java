@@ -10,6 +10,5 @@ public interface UsersDAO {
     
     public void updateUser();
     
-    public void deleteUser();
-    
+    public void deleteUser();    
 }
