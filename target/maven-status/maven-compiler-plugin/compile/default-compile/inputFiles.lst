@@ -13,5 +13,8 @@ C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\dao\interfaces\CompaniesDAO.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\dao\implementations\UsersDAOImpl.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\domain\Places.java
+C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\service\implementations\UsersServiceImpl.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\service\interfaces\UsersService.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\domain\GroupUsers.java
+C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\service\implementations\CompaniesServiceImpl.java
+C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\service\implementations\ObjectsServiceImpl.java

@@ -1,6 +1,8 @@
+com\mrminakov\bota\service\implementations\ObjectsServiceImpl.class
 com\mrminakov\bota\dao\interfaces\ObjectsDAO.class
 com\mrminakov\bota\domain\Types.class
 com\mrminakov\bota\dao\interfaces\UsersDAO.class
+com\mrminakov\bota\service\implementations\CompaniesServiceImpl.class
 com\mrminakov\bota\domain\WorkProcess.class
 com\mrminakov\bota\dao\implementations\UsersDAOImpl.class
 com\mrminakov\bota\dao\implementations\CompaniesDAOImpl.class
@@ -8,6 +10,7 @@ com\mrminakov\bota\service\interfaces\ObjectsService.class
 com\mrminakov\bota\service\interfaces\CompaniesService.class
 com\mrminakov\bota\domain\GroupUsers.class
 com\mrminakov\bota\domain\Places.class
+com\mrminakov\bota\service\implementations\UsersServiceImpl.class
 com\mrminakov\bota\domain\Works.class
 com\mrminakov\bota\dao\implementations\ObjectsDAOImpl.class
 com\mrminakov\bota\domain\Objects.class
