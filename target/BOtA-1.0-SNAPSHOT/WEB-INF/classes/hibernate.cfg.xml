@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <!--<session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ibuilder_db</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">p1i2l3o4t5</property>
+    </session-factory>-->
+    <session-factory>
+        <mapping class="com.mrminakov.bota.domain.Companies" />
+        <mapping class="com.mrminakov.bota.domain.GroupUsers" />
+        <mapping class="com.mrminakov.bota.domain.Objects" />
+        <mapping class="com.mrminakov.bota.domain.Places" />
+        <mapping class="com.mrminakov.bota.domain.Types" />
+        <mapping class="com.mrminakov.bota.domain.Users" />
+        <mapping class="com.mrminakov.bota.domain.WorkProcess" />
+        <mapping class="com.mrminakov.bota.domain.Works" />
+    </session-factory>
+</hibernate-configuration>
