@@ -1,6 +1,5 @@
 package com.mrminakov.bota.service.interfaces;
 
-import com.mrminakov.bota.domain.Companies;
 import com.mrminakov.bota.domain.Users;
 import java.util.List;
 
@@ -10,20 +9,7 @@ import java.util.List;
  */
 public interface UsersService {
 
-    public void createUser(
-            Companies company,
-            String login,
-            String password,
-            String role,
-            String name,
-            String position);
-
-    public void createUser(
-            Companies company,
-            String login,
-            String password,
-            String role,
-            String name);
+    public void createUser(Users user);
 
     public void updateUser(Users user);
 

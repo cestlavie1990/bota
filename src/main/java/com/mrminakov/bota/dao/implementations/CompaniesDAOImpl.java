@@ -1,8 +1,8 @@
+
 package com.mrminakov.bota.dao.implementations;
 
 import com.mrminakov.bota.dao.interfaces.CompaniesDAO;
 import com.mrminakov.bota.domain.Companies;
-import java.util.Date;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,12 +18,7 @@ public class CompaniesDAOImpl implements CompaniesDAO {
     private SessionFactory sessionFactory;
     
     @Override
-    public void createCompany(String name, String email) {
-        Companies company = new Companies();
-        company.setName(name);
-        company.setEmail(email);
-        company.setDateRegistration(new Date());
-        
+    public void createCompany(Companies company) {        
         sessionFactory.getCurrentSession().save(company);
     }
     
@@ -39,5 +34,6 @@ public class CompaniesDAOImpl implements CompaniesDAO {
             sessionFactory.getCurrentSession().delete(company);
         }
     }
+    
     
 }

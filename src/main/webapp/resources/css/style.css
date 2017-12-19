@@ -1,0 +1,168 @@
+/* 
+    Created on : Jun 19, 2017, 2:28:35 PM
+    Author     : Mr.Minakov
+*/
+
+
+html {
+    height: 100%;
+    width: 100%;
+    min-width: 750px;
+}
+
+.page {
+    height: 100%;
+    width: 100%;
+    background-color: #2D2D30;
+}
+
+.win-center {
+    position: relative;
+    background-color: white;
+    width: 250px;
+    top: 50%;
+    left: 50%;
+    margin-left: -125px;
+    margin-top: -80px;
+    border-radius: 5px;
+}
+
+.win-center li a {
+    color: black;
+}
+
+.auth {
+    position: relative;
+    background-color: white;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    margin-left: -175px;
+    margin-top: -125px;
+    border-radius: 5px;
+    padding: 15px 50px 15px 50px;
+}
+
+.auth-error {
+    position: relative;
+    background-color: white;
+    width: 550px;
+    top: 50%;
+    left: 50%;
+    margin-left: -275px;
+    margin-top: -125px;
+    border-radius: 5px;
+    padding: 15px 30px 15px 30px;
+}
+
+.reg-process {
+    position: relative;
+    background-color: white;
+    width: 600px;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 15px 50px 15px 50px;
+}
+
+.reg-finished {
+    position: relative;
+    background-color: white;
+    width: 500px;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -75px;
+    border-radius: 5px;
+    padding: 15px 30px 30px 30px;
+}
+
+/*===============================objects=======================================*/
+.box1, .box3 {
+    background-color: white;
+    padding: 15px 0 15px 0;
+}
+
+.box1, .box2 {
+    margin-top: 65px;
+}
+
+.box2 {
+    background-color: #ff0;
+    margin-left: -15px;
+    padding: 20px 0 3px 0;
+    border-bottom: 2px solid black;
+}
+
+.box3 {
+    margin-top: 15px;
+}
+
+.box4 {
+    background-color: white;
+    padding: 15px 0 15px 0;
+    margin-left: -15px;
+}
+
+.dropdown {
+    margin: 15px 10px 0 0;
+}
+
+.dropdown .text {
+    color: white;
+    font-size: 16px;
+    margin-left: 41px;
+}
+
+.dropdown-menu li a:hover, .dropdown-menu .active a {
+    background-color: #D9534F;
+    color: white;
+}
+
+/*.nav-pills {
+    overflow-y: scroll;
+    max-height: 500px;
+}*/
+
+#active-obj-btn p, #finished-obj-btn p {
+    color: black;
+    background-color: silver;
+    padding: 10px 0 10px 0;
+    width: 95%;
+    margin-left: 2.5%;
+    transition: .2s;
+}
+
+#active-obj-btn:hover, #active-obj-btn:focus, #finished-obj-btn:hover, #finished-obj-btn:focus {
+    text-decoration: none;
+}
+
+#active-obj-btn p:hover, #active-obj-btn p:focus, #finished-obj-btn p:hover, #finished-obj-btn p:focus {
+    text-decoration: none;
+    background-color: #D9534F;
+    color: white;
+}
+
+.objSelect {
+    width: 100%;
+    border-radius: 0;
+}
+
+.modal {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+    .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+    }
+}
+
+.modal-dialog {
+    display: inline-block;
+    vertical-align: middle;
+}

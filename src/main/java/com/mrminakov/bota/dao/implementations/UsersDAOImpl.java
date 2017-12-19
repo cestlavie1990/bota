@@ -1,9 +1,7 @@
 package com.mrminakov.bota.dao.implementations;
 
 import com.mrminakov.bota.dao.interfaces.UsersDAO;
-import com.mrminakov.bota.domain.Companies;
 import com.mrminakov.bota.domain.Users;
-import java.util.Date;
 import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,29 +18,7 @@ public class UsersDAOImpl implements UsersDAO {
     private SessionFactory sessionFactory;
 
     @Override
-    public void createUser(Companies company, String login, String password, String role, String name, String position) {
-        Users user = new Users();
-        user.setRecordIdCompany(company);
-        user.setLogin(login);
-        user.setPassword(password);
-        user.setRole(role);
-        user.setName(name);
-        user.setPosition(position);
-        user.setDateRegistration(new Date());
-        
-        sessionFactory.getCurrentSession().save(user);
-    }
-
-    @Override
-    public void createUser(Companies company, String login, String password, String role, String name) {
-        Users user = new Users();
-        user.setRecordIdCompany(company);
-        user.setLogin(login);
-        user.setPassword(password);
-        user.setRole(role);
-        user.setName(name);
-        user.setDateRegistration(new Date());
-        
+    public void createUser(Users user) {
         sessionFactory.getCurrentSession().save(user);
     }
 

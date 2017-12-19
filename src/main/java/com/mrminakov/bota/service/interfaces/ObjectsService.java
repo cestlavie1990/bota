@@ -1,6 +1,5 @@
 package com.mrminakov.bota.service.interfaces;
 
-import com.mrminakov.bota.domain.Companies;
 import com.mrminakov.bota.domain.Objects;
 import java.util.List;
 
@@ -10,13 +9,7 @@ import java.util.List;
  */
 public interface ObjectsService {
 
-    public void createObject(
-            Companies company,
-            String name,
-            String address,
-            String customer,
-            String generalBuilder,
-            String uqKey);
+    public void createObject(Objects object);
 
     public void updateObject(Objects object);
 
@@ -25,6 +18,8 @@ public interface ObjectsService {
     public Objects getByObject(Integer recordId);
 
     public List<Objects> getByCompany(Integer recordIdCompany);
+    
+    public List<Objects> getObjects();
 
     public List<Objects> getByCompanyAndStatus(Integer recordIdCompany, Boolean status);
 

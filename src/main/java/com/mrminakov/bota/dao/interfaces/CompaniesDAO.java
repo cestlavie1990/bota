@@ -8,7 +8,7 @@ import com.mrminakov.bota.domain.Companies;
  */
 public interface CompaniesDAO {
 
-    public void createCompany(String name, String email);
+    public void createCompany(Companies company);
 
     public void updateCompany(Companies company);
 
