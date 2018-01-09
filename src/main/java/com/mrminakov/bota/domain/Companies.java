@@ -45,6 +45,11 @@ public class Companies implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "email")
     private String email;
+    
+    @NotNull
+    @Size(min = 1, max = 32)
+    @Column(name = "company_login")
+    private String companyLogin;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recordIdCompany")
     private Collection<Objects> objectsCollection;
@@ -100,6 +105,14 @@ public class Companies implements Serializable {
         this.usersCollection = usersCollection;
     }
 
+    public String getCompanyLogin() {
+        return companyLogin;
+    }
+
+    public void setCompanyLogin(String companyLogin) {
+        this.companyLogin = companyLogin;
+    }
+        
     @Override
     public int hashCode() {
         int hash = 0;
