@@ -3,6 +3,7 @@ package com.mrminakov.bota.dao.implementations;
 import com.mrminakov.bota.dao.interfaces.UsersDAO;
 import com.mrminakov.bota.domain.Users;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class UsersDAOImpl implements UsersDAO {
-    
+
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -53,6 +54,13 @@ public class UsersDAOImpl implements UsersDAO {
     @Override
     public List<Users> getNameAndLoginByCompany(Integer recordIdCompany) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Users getByLogin(String login) {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Users where login =:login");
+        query.setParameter("login", login);
+        return (Users) query.uniqueResult();
     }
 
 }

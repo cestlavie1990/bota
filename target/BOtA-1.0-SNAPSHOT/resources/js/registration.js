@@ -7,6 +7,7 @@ $(document).ready(function () {
             data: {
                 email: $('#email').val(),
                 login: $('#login').val(),
+                companyLogin: $('#companyLogin').val(),
                 companyName: $('#companyName').val(),
                 password: $('#password').val(),
                 passwordRepeat: $('#passwordRepeat').val(),

@@ -16,6 +16,8 @@ public interface UsersDAO {
     public void deleteUser(Integer recordId);
 
     public Users getByUser(Integer recordId);
+    
+    public Users getByLogin(String login);
 
     public List<Users> getByCompany(Integer recordIdCompany);
 

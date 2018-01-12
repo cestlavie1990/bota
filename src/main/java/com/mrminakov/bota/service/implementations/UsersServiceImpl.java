@@ -53,4 +53,9 @@ public class UsersServiceImpl implements UsersService {
         return usersDAO.getNameAndLoginByCompany(recordIdCompany);
     }
 
+    @Transactional
+    public Users getByLogin(String login) {
+        return usersDAO.getByLogin(login);
+    }
+
 }
