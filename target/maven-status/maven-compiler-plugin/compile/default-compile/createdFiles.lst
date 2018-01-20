@@ -1,3 +1,4 @@
+com\mrminakov\bota\exceptions\EmptyParameterException.class
 com\mrminakov\bota\service\implementations\ObjectsServiceImpl.class
 com\mrminakov\bota\domain\WorkProcess.class
 com\mrminakov\bota\dao\implementations\UsersDAOImpl.class
@@ -5,11 +6,13 @@ com\mrminakov\bota\domain\Places.class
 com\mrminakov\bota\domain\Works.class
 com\mrminakov\bota\dao\implementations\ObjectsDAOImpl.class
 com\mrminakov\bota\domain\Objects.class
-com\mrminakov\bota\dao\objects\RegistrationData.class
+com\mrminakov\bota\managers\CompanyManager.class
+com\mrminakov\bota\exceptions\EmailAlreadyUsedException.class
 com\mrminakov\bota\web\RegistrationController.class
 com\mrminakov\bota\domain\Companies.class
 com\mrminakov\bota\dao\interfaces\ObjectsDAO.class
 com\mrminakov\bota\domain\Types.class
+com\mrminakov\bota\exceptions\CompanyLoginAlreadyUsedException.class
 com\mrminakov\bota\dao\interfaces\UsersDAO.class
 com\mrminakov\bota\service\implementations\CompaniesServiceImpl.class
 com\mrminakov\bota\dao\implementations\CompaniesDAOImpl.class

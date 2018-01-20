@@ -20,37 +20,10 @@ public class CompanyManager {
     public Companies create(
             final String name,
             final String email,
-            final String companyLogin) throws EmptyParameterException, EmailAlreadyUsedException, CompanyLoginAlreadyUsedException {
-        if (hasEmptyParameter(name, email, companyLogin)) {
-            throw new EmptyParameterException();
-        } else if (isEmailUsed(email)) {
-            throw new EmailAlreadyUsedException();
-        } else if (isCompanyLoginUsed(companyLogin)) {
-            throw new CompanyLoginAlreadyUsedException();
-        }
-
+            final String companyLogin) {
         Companies company = new Companies();
-        company.setCompanyLogin(companyLogin);
-        company.setEmail(email);
-        company.setName(name);
-        company.setDateRegistration(new Date());
 
         return company;
-    }
-
-    private boolean isEmailUsed(final String email) {
-        return companiesService.getByEmail(email) == null;
-    }
-
-    private boolean isCompanyLoginUsed(final String companyLogin) {
-        return companiesService.getByCompanyLogin(companyLogin) == null;
-    }
-
-    private boolean hasEmptyParameter(
-            final String name,
-            final String email,
-            final String companyLogin) {
-        return name.equals("") || email.equals("") || companyLogin.equals("");
     }
 
 }

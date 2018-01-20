@@ -37,31 +37,28 @@ public class Users implements Serializable {
     private Integer recordId;
 
     @NotNull
-    @Size(min = 1, max = 255)
+    @Size(min = 3, max = 255, message = "Логин должен быть длиной не менее 3 символов")
     @Column(name = "login")
     private String login;
 
     @NotNull
-    @Size(min = 1, max = 255)
+    @Size(min = 4, max = 255, message = "Пароль должен быть длиной не менее 4 символов")
     @Column(name = "password")
     private String password;
 
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
     @Column(name = "role")
     private String role;
 
     @NotNull
-    @Size(min = 1, max = 255)
+    @Size(min = 1, max = 255, message = "Имя не задано")
     @Column(name = "name")
     private String name;
 
-    @NotNull
     @Column(name = "date_registration")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateRegistration;
 
-    @Size(max = 255)
     @Column(name = "position")
     private String position;
 
@@ -69,7 +66,7 @@ public class Users implements Serializable {
         @JoinColumn(name = "record_id_user", referencedColumnName = "record_id")}, inverseJoinColumns = {
         @JoinColumn(name = "record_id_place", referencedColumnName = "record_id")})
     @ManyToMany
-    private Collection<Places> placesCollection;
+    private Collection<Places> placesCollection = new ArrayList<>();
 
     @JoinTable(name = "users_and_objects", joinColumns = {
         @JoinColumn(name = "record_id_user", referencedColumnName = "record_id")}, inverseJoinColumns = {
@@ -82,7 +79,7 @@ public class Users implements Serializable {
     private Companies recordIdCompany;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userLogin")
-    private Collection<GroupUsers> groupUsersCollection;
+    private Collection<GroupUsers> groupUsersCollection = new ArrayList<>();
 
     public Integer getRecordId() {
         return recordId;
@@ -170,6 +167,14 @@ public class Users implements Serializable {
 
     public void setGroupUsersCollection(Collection<GroupUsers> groupUsersCollection) {
         this.groupUsersCollection = groupUsersCollection;
+    }
+    
+    public void addObjectToCollection(Objects object) {
+        this.objectsCollection.add(object);
+    }
+
+    public void deleteObjectFromCollection(Objects object) {
+        this.objectsCollection.add(object);
     }
     
         @Override

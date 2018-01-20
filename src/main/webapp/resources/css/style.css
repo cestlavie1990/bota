@@ -166,3 +166,8 @@ html {
     display: inline-block;
     vertical-align: middle;
 }
+
+.errorText {
+    color: red;
+    font-size: small;
+}

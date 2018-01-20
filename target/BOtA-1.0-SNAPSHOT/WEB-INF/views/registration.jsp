@@ -16,14 +16,9 @@
     </head>
     <body class="page">
         <div class="reg-process text-center">
-            <c:if test="${notif ne null}">
-                <div class="notif">
-                    <span>${notif}</span> 
-                </div>
-            </c:if>
             <h2 class="text-center">Регистрация профиля</h2>
             <p>Пожалуйста, заполните пустые поля</p>
-            <form:form method="post">
+            <form:form modelAttribute="user" commandName="company" method="post">
                 <p>
                     <label for="email">Email:</label>
                     <input type="email" name="email" class="form-control" id="email" placeholder="Введите адрес почты">                                    
@@ -63,3 +58,43 @@
         </div>
     </body>
 </html>
+
+<!--
+<form:form method="post" commandName="regData">
+    <p>
+        <label for="email">Email:</label>
+        <input type="email" name="email" class="form-control" id="email" placeholder="Введите адрес почты">                                    
+    </p>
+    <p>
+        <label for="login">Логин:</label>
+        <input type="text" name="login" class="form-control" id="login" placeholder="Введите логин:">                                    
+    </p>
+    <p>
+        <label for="companyName">Полное название организации:</label>
+        <input type="text" name="companyName" class="form-control" id="companyName" placeholder='ООО "Иван и co"'>                                    
+    </p>
+    <p>
+        <label for="companyLogin">Уникальный логин организации:</label>
+        <input type="text" name="companyLogin" class="form-control" id="companyLogin" placeholder='ivanAndCo'>                                    
+    </p>
+    <p>
+        <label for="password">Пароль:</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="Введите пароль">
+    </p>
+    <p>
+        <label for="passwordRepeat">Повтор пароля:</label>
+        <input type="password" name="passwordRepeat" class="form-control" id="passwordRepeat" placeholder="Повторите пароль">                                    
+    </p>
+    <p>
+        <label for="username">Имя:</label>
+        <input type="text" name="username" class="form-control" id="username" placeholder="Иван Петров">                                    
+    </p>
+    <p>
+        <label for="position">Должность:</label>
+        <input type="text" name="position" class="form-control" id="position" placeholder="Генеральный директор">                                    
+    </p>
+    <p>
+        <button type="button" class="btn btn-default confirm" id="btnConfirm">Зарегистрироваться</button>                                    
+    </p>
+</form:form>
+-->

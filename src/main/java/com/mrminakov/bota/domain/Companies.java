@@ -1,6 +1,7 @@
 package com.mrminakov.bota.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.CascadeType;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -26,36 +28,41 @@ public class Companies implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private static final String EMAIL_REGEXP = "^(?:[a-zA-Z0-9_'^&/+-])+(?:\\.(?:[a-zA-Z0-9_'^&/+-])+)"
+            + "*@(?:(?:\\[?(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))\\.)"
+            + "{3}(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\]?)|(?:[a-zA-Z0-9-]+\\.)"
+            + "+(?:[a-zA-Z]){2,}\\.?)$";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "record_id")
     private Integer recordId;
 
     @NotNull
-    @Size(min = 1, max = 255)
+    @Size(min = 3, max = 255, message = "Название должно быть длиной не менее 3 символов")
     @Column(name = "name")
     private String name;
 
-    @NotNull
     @Column(name = "date_registration")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateRegistration;
 
     @NotNull
-    @Size(min = 1, max = 255)
+    @Size(min = 6, max = 255, message = "Слишком короткий адрес")
+    @Pattern(regexp = EMAIL_REGEXP, message = "Заданный email не может существовать")
     @Column(name = "email")
     private String email;
-    
+
     @NotNull
-    @Size(min = 1, max = 32)
+    @Size(min = 3, max = 32, message = "Логин должен быть длиной от 3 до 32 символов")
     @Column(name = "company_login")
     private String companyLogin;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recordIdCompany")
-    private Collection<Objects> objectsCollection;
+    private Collection<Objects> objectsCollection = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recordIdCompany")
-    private Collection<Users> usersCollection;
+    private Collection<Users> usersCollection = new ArrayList<>();
 
     public Integer getRecordId() {
         return recordId;
@@ -112,7 +119,23 @@ public class Companies implements Serializable {
     public void setCompanyLogin(String companyLogin) {
         this.companyLogin = companyLogin;
     }
-        
+
+    public void addUserToCollection(Users user) {
+        this.usersCollection.add(user);
+    }
+
+    public void deleteUserFromCollection(Users user) {
+        this.usersCollection.remove(user);
+    }
+
+    public void addObjectToCollection(Objects object) {
+        this.objectsCollection.add(object);
+    }
+
+    public void deleteObjectFromCollection(Objects object) {
+        this.objectsCollection.add(object);
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
