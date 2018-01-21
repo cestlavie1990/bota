@@ -10,6 +10,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -96,7 +97,9 @@ public class RegistrationController {
     private void createUser(
             final Companies company,
             final Users user) {
+        String md5Pass = DigestUtils.md5Hex(user.getPassword());
         user.setRecordIdCompany(company);
+        user.setPassword(md5Pass);
         user.setDateRegistration(new Date());
         user.setRole("ADMINISTRATOR");
 
