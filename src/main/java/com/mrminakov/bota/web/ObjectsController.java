@@ -5,6 +5,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -16,15 +19,10 @@ public class ObjectsController {
     @Autowired
     private ObjectsService objectsService;
 
-    @RequestMapping("/objects")
+    @RequestMapping(value = "/objects", method = RequestMethod.GET)
     public String listObjects(Map<String, Object> map) {
         map.put("objectsList", objectsService.getObjects());
         return "objects";
-    }
-    
-    @RequestMapping("/")
-    public String home() {
-        return "redirect:/objects";
     }
 
 }
