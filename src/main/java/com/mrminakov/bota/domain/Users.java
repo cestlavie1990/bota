@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -38,17 +36,16 @@ public class Users implements Serializable {
 
     @NotNull
     @Size(min = 3, max = 255, message = "Логин должен быть длиной не менее 3 символов")
-    @Column(name = "login")
-    private String login;
+    @Column(name = "username")
+    private String username;
 
     @NotNull
     @Size(min = 4, max = 255, message = "Пароль должен быть длиной не менее 4 символов")
     @Column(name = "password")
     private String password;
 
-    @Size(max = 255)
-    @Column(name = "role")
-    private String role;
+    @Column(name = "enabled")
+    private Boolean enabled;
 
     @NotNull
     @Size(min = 1, max = 255, message = "Имя не задано")
@@ -78,23 +75,12 @@ public class Users implements Serializable {
     @ManyToOne(optional = false)
     private Companies recordIdCompany;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userLogin")
-    private Collection<GroupUsers> groupUsersCollection = new ArrayList<>();
-
     public Integer getRecordId() {
         return recordId;
     }
 
     public void setRecordId(Integer recordId) {
         this.recordId = recordId;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getPassword() {
@@ -105,12 +91,20 @@ public class Users implements Serializable {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public String getUsername() {
+        return username;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getName() {
@@ -161,14 +155,6 @@ public class Users implements Serializable {
         this.recordIdCompany = recordIdCompany;
     }
 
-    public Collection<GroupUsers> getGroupUsersCollection() {
-        return groupUsersCollection;
-    }
-
-    public void setGroupUsersCollection(Collection<GroupUsers> groupUsersCollection) {
-        this.groupUsersCollection = groupUsersCollection;
-    }
-    
     public void addObjectToCollection(Objects object) {
         this.objectsCollection.add(object);
     }
@@ -176,8 +162,8 @@ public class Users implements Serializable {
     public void deleteObjectFromCollection(Objects object) {
         this.objectsCollection.add(object);
     }
-    
-        @Override
+
+    @Override
     public int hashCode() {
         int hash = 0;
         hash += (recordId != null ? recordId.hashCode() : 0);

@@ -1,5 +1,4 @@
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\dao\interfaces\UsersDAO.java
-C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\service\implementations\GroupUsersServiceImpl.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\domain\Users.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\domain\Companies.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\dao\implementations\CompaniesDAOImpl.java
@@ -14,9 +13,7 @@ C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\managers\CompanyManager.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\domain\Works.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\service\interfaces\ObjectsService.java
-C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\service\interfaces\GroupUsersService.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\exceptions\EmailAlreadyUsedException.java
-C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\dao\interfaces\GroupUsersDAO.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\exceptions\EmptyParameterException.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\service\interfaces\CompaniesService.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\domain\Objects.java
@@ -25,7 +22,5 @@ C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\dao\implementations\UsersDAOImpl.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\domain\Places.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\service\interfaces\UsersService.java
-C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\domain\GroupUsers.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\service\implementations\CompaniesServiceImpl.java
-C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\dao\implementations\GroupUsersDAOImpl.java
 C:\Users\Mr.Minakov\Documents\NetBeansProjects\BOtA\src\main\java\com\mrminakov\bota\exceptions\CompanyLoginAlreadyUsedException.java

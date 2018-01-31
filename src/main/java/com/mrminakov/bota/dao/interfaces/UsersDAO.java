@@ -17,7 +17,7 @@ public interface UsersDAO {
 
     public Users getByUser(Integer recordId);
     
-    public Users getByLogin(String login);
+    public Users getByUsername(String username);
 
     public List<Users> getByCompany(Integer recordIdCompany);
 

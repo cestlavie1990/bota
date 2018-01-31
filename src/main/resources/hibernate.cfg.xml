@@ -3,7 +3,6 @@
 <hibernate-configuration>
     <session-factory>
         <mapping class="com.mrminakov.bota.domain.Companies" />
-        <mapping class="com.mrminakov.bota.domain.GroupUsers" />
         <mapping class="com.mrminakov.bota.domain.Objects" />
         <mapping class="com.mrminakov.bota.domain.Places" />
         <mapping class="com.mrminakov.bota.domain.Types" />

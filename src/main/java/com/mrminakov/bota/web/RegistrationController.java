@@ -1,10 +1,8 @@
 package com.mrminakov.bota.web;
 
 import com.mrminakov.bota.domain.Companies;
-import com.mrminakov.bota.domain.GroupUsers;
 import com.mrminakov.bota.domain.Users;
 import com.mrminakov.bota.service.interfaces.CompaniesService;
-import com.mrminakov.bota.service.interfaces.GroupUsersService;
 import com.mrminakov.bota.service.interfaces.UsersService;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
@@ -36,9 +34,6 @@ public class RegistrationController {
     @Autowired
     private UsersService usersService;
 
-    @Autowired
-    private GroupUsersService groupUsersService;
-
     @RequestMapping(value = "registration", method = RequestMethod.GET)
     private ModelAndView load(HttpSession session) {
         ModelAndView mv = new ModelAndView("regCompany");
@@ -46,7 +41,7 @@ public class RegistrationController {
         return mv;
     }
 
-    @RequestMapping(value = "check-company", method = RequestMethod.POST)
+    @RequestMapping(value = "/check-company", method = RequestMethod.POST)
     private ModelAndView checkCompany(@Valid @ModelAttribute("company") Companies company, BindingResult bindingResult, HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("regCompany");
@@ -73,14 +68,13 @@ public class RegistrationController {
         mv.setViewName("regUser");
         if (bindingResult.hasErrors()) {
             return mv;
-        } else if (isUserLoginUsed(user.getLogin())) {
+        } else if (isUserLoginUsed(user.getUsername())) {
             mv.addObject("error", ERR_USER_LOGIN_USED);
             return mv;
         }
         company = createCompany(company);
         createUser(company, user);
-        createGroupUser(user);
-        
+
         mv.clear();
         mv.setViewName("regComplete");
         return mv;
@@ -101,17 +95,9 @@ public class RegistrationController {
         user.setRecordIdCompany(company);
         user.setPassword(md5Pass);
         user.setDateRegistration(new Date());
-        user.setRole("ADMINISTRATOR");
+        user.setEnabled(false);
 
         usersService.createUser(user);
-    }
-
-    private void createGroupUser(final Users user) {
-        GroupUsers groupUser = new GroupUsers();
-        groupUser.setUserLogin(user);
-        groupUser.setGroupName("ADMIN_GROUP");
-
-        groupUsersService.create(groupUser);
     }
 
     private boolean isCompanyLoginUsed(final String companyLogin) {
@@ -122,8 +108,8 @@ public class RegistrationController {
         return companiesService.getByEmail(email) != null;
     }
 
-    private boolean isUserLoginUsed(final String login) {
-        return usersService.getByLogin(login) != null;
+    private boolean isUserLoginUsed(final String username) {
+        return usersService.getByUsername(username) != null;
     }
 
 }

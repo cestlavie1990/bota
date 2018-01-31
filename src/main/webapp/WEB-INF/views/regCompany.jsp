@@ -18,7 +18,7 @@
         <div class="reg-process text-center">
             <h2 class="text-center">Регистрация компании</h2>
             <p>Пожалуйста, заполните пустые поля</p>
-            <form:form commandName="company" action="check-company" method="POST" cssClass="reg-form">
+            <form:form commandName="company" action="/BOtA/check-company" method="POST" cssClass="reg-form">
                 <p>
                     <form:label path="email">Email:<br>
                         <form:input path="email" /><br>

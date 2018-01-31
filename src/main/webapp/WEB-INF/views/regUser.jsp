@@ -26,9 +26,9 @@
                     </form:label>
                 </p>
                 <p>
-                    <form:label path="login">Login:<br>
-                        <form:input path="login" /><br>
-                        <form:errors path="login" cssClass="errorText" id="errorLogin" />
+                    <form:label path="username">Login:<br>
+                        <form:input path="username" /><br>
+                        <form:errors path="username" cssClass="errorText" id="errorLogin" />
                         <c:if test="${error == 'ERR_USER_LOGIN_USED'}">
                             <span style="color: red">Такой login уже существует</span>
                         </c:if>
