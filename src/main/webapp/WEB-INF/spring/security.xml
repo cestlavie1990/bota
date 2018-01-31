@@ -16,6 +16,7 @@
                     authentication-failure-url="/login?error=true"
                     username-parameter="user_login" 
                     password-parameter="user_password" />
+        <remember-me/>
     </http>
     
     <authentication-manager>

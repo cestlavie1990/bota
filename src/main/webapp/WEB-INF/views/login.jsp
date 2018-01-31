@@ -30,7 +30,7 @@
                     <p style="color: red; font-weight: bold;">${error}</p>
                 </c:if>
                 <p>
-                    <label><input type="checkbox"> Запомнить меня</label>
+                    <input name="remember-me" type="checkbox"> Запомнить меня</label>
                 </p> 
                 <button type="submit" class="btn btn-default">Вход</button>
                 <button type="button" class="btn btn-default" onclick="location.href = '/BOtA/registration'">Регистрация</button>

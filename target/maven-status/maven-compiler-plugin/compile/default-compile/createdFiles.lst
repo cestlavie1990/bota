@@ -1,5 +1,6 @@
 com\mrminakov\bota\exceptions\EmptyParameterException.class
 com\mrminakov\bota\service\implementations\ObjectsServiceImpl.class
+com\mrminakov\bota\web\LoginController.class
 com\mrminakov\bota\domain\WorkProcess.class
 com\mrminakov\bota\dao\implementations\UsersDAOImpl.class
 com\mrminakov\bota\domain\Places.class
