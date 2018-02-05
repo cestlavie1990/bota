@@ -8,8 +8,8 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -61,7 +61,7 @@ public class RegistrationController {
         return mv;
     }
 
-    @RequestMapping(value = "check-user", method = RequestMethod.POST)
+    @RequestMapping(value = "/check-user", method = RequestMethod.POST)
     private ModelAndView checkUser(@Valid @ModelAttribute("user") Users user, BindingResult bindingResult, HttpServletRequest request) {
         Companies company = (Companies) request.getSession().getAttribute("company");
         ModelAndView mv = new ModelAndView();
@@ -91,11 +91,9 @@ public class RegistrationController {
     private void createUser(
             final Companies company,
             final Users user) {
-        String md5Pass = DigestUtils.md5Hex(user.getPassword());
         user.setRecordIdCompany(company);
-        user.setPassword(md5Pass);
         user.setDateRegistration(new Date());
-        user.setEnabled(false);
+        user.setEnabled(true);
 
         usersService.createUser(user);
     }

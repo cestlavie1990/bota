@@ -18,7 +18,7 @@
         <div class="reg-process text-center">
             <h2 class="text-center">Регистрация пользователя</h2>
             <p>Пожалуйста, заполните пустые поля</p>
-            <form:form commandName="user" action="check-user" method="POST" cssClass="reg-form">
+            <form:form commandName="user" action="/BOtA/check-user" method="POST" cssClass="reg-form">
                 <p>
                     <form:label path="name">Имя сотрудника:<br>
                         <form:input path="name" /><br>

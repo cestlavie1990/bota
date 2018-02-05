@@ -9,7 +9,11 @@
     
     <http use-expressions="true">
         <intercept-url pattern="/login" access="hasRole('ANONYMOUS')" />
-        <intercept-url pattern="/*" access="hasRole('ANONYMOUS')" />        
+        <intercept-url pattern="/registration" access="hasRole('ANONYMOUS')" />
+        <intercept-url pattern="/check-company" access="hasRole('ANONYMOUS')" />
+        <intercept-url pattern="/check-user" access="hasRole('ANONYMOUS')" />
+        <intercept-url pattern="/regComplete" access="hasRole('ANONYMOUS')" />
+        <intercept-url pattern="/*" access="hasRole('ROLE_ADMIN')" />        
         <form-login login-page="/login"
                     login-processing-url="/j_spring_security_check" 
                     default-target-url="/objects"
@@ -19,11 +23,17 @@
         <remember-me/>
     </http>
     
+    <beans:bean id="jdbcGroupsImpl" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+        <beans:property name="enableGroups" value="true" />
+        <beans:property name="enableAuthorities" value="false" />
+        <beans:property name="dataSource" ref="dataSource" />
+    </beans:bean>
+    
+    <beans:bean name="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+    
     <authentication-manager>
-        <authentication-provider>
-            <user-service>
-                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
-            </user-service>
+        <authentication-provider user-service-ref="jdbcGroupsImpl">
+            <password-encoder ref="bcryptEncoder" />
         </authentication-provider>
     </authentication-manager>
 
