@@ -16,7 +16,7 @@ public interface UsersService {
     public void deleteUser(Integer recordId);
 
     public Users getByUser(Integer recordId);
-    
+
     public Users getByUsername(String username);
 
     public List<Users> getByCompany(Integer recordIdCompany);
@@ -25,4 +25,5 @@ public interface UsersService {
 
     public List<Users> getNameAndLoginByCompany(Integer recordIdCompany);
 
+    public void addUserToGroupAdmin(String username);
 }

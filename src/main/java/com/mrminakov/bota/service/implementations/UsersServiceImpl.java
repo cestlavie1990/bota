@@ -58,4 +58,9 @@ public class UsersServiceImpl implements UsersService {
         return usersDAO.getByUsername(username);
     }
 
+    @Transactional
+    public void addUserToGroupAdmin(String username) {
+        usersDAO.addUserToGroupAdmin(username);
+    }
+
 }

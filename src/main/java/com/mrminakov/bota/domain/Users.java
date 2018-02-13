@@ -36,7 +36,7 @@ public class Users implements Serializable {
     private Integer recordId;
 
     @NotNull
-    @Size(min = 3, max = 255, message = "Логин должен быть длиной не менее 3 символов")
+    @Size(min = 3, max = 50, message = "Логин должен быть длиной не менее 3 символов")
     @Column(name = "username")
     private String username;
 

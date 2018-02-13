@@ -4,6 +4,7 @@ import com.mrminakov.bota.dao.interfaces.UsersDAO;
 import com.mrminakov.bota.domain.Users;
 import java.util.List;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -61,6 +62,16 @@ public class UsersDAOImpl implements UsersDAO {
         Query query = sessionFactory.getCurrentSession().createQuery("from Users where username =:username");
         query.setParameter("username", username);
         return (Users) query.uniqueResult();
+    }
+
+    @Override
+    public void addUserToGroupAdmin(String username) {
+        SQLQuery query = sessionFactory
+                .getCurrentSession()
+                .createSQLQuery("INSERT INTO group_members (username, group_id) VALUES (:username, :group_id);");
+        query.setParameter("username", username);
+        query.setParameter("group_id", 4);
+        query.executeUpdate();
     }
 
 }

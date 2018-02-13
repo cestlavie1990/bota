@@ -94,6 +94,8 @@ public class RegistrationController {
         user.setRecordIdCompany(company);
         user.setDateRegistration(new Date());
         user.setEnabled(true);
+        
+        usersService.addUserToGroupAdmin(user.getUsername());
 
         usersService.createUser(user);
     }

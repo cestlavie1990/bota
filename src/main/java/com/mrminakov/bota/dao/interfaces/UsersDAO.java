@@ -16,7 +16,7 @@ public interface UsersDAO {
     public void deleteUser(Integer recordId);
 
     public Users getByUser(Integer recordId);
-    
+
     public Users getByUsername(String username);
 
     public List<Users> getByCompany(Integer recordIdCompany);
@@ -24,4 +24,6 @@ public interface UsersDAO {
     public List<Users> getByObject(Integer recordIdObject);
 
     public List<Users> getNameAndLoginByCompany(Integer recordIdCompany);
+
+    public void addUserToGroupAdmin(String username);
 }

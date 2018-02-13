@@ -22,4 +22,9 @@ public class LoginController {
         mv.setViewName("login");
         return mv;
     }
+    
+    @RequestMapping (value = "/", method = RequestMethod.GET)
+    public String home() {
+        return "redirect:objects";
+    }
 }
