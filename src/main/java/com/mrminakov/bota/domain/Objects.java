@@ -1,6 +1,7 @@
 package com.mrminakov.bota.domain;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -119,8 +120,12 @@ public class Objects implements Serializable {
         this.generalBuilder = generalBuilder;
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
+    public String getDateCreated() {
+        try {
+            return new SimpleDateFormat("dd.MM.yyyy").format(this.dateCreated);
+        } catch (NullPointerException e) {
+            return "Дата не определена";
+        }
     }
 
     public void setDateCreated(Date dateCreated) {

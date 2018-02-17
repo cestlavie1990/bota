@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,9 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class RegistrationController {
 
-    private final String ERR_EMAIL_USED = "ERR_EMAIL_USED";
-    private final String ERR_COMPANY_LOGIN_USED = "ERR_COMPANY_LOGIN_USED";
-    private final String ERR_USER_LOGIN_USED = "ERR_USER_LOGIN_USED";
+    private static final String ERR_EMAIL_USED = "ERR_EMAIL_USED";
+    private static final String ERR_COMPANY_LOGIN_USED = "ERR_COMPANY_LOGIN_USED";
+    private static final String ERR_USER_LOGIN_USED = "ERR_USER_LOGIN_USED";
 
     @Autowired
     private CompaniesService companiesService;

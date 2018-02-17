@@ -21,6 +21,7 @@
                     username-parameter="user_login" 
                     password-parameter="user_password" />
         <remember-me/>
+        <logout logout-url="/log/out" />
     </http>
     
     <beans:bean id="jdbcGroupsImpl" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
