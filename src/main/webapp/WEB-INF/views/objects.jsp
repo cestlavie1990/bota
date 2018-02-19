@@ -10,17 +10,6 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><spring:message code="label.title" /></title>
-    </head>
-    <body>
-<c:forEach items="${objectsList}" var="object">
-    <p>${object.name}</p>
-</c:forEach>
-</body>
-</html>-->
 <html>
     <head>
         <script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -29,7 +18,7 @@
         <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />" />
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/style.css" />" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Объекты строительства</title>
+        <title><spring:message code="objects.title" /></title>
     </head>
     <body class="page">
     <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">
@@ -37,19 +26,29 @@
             <div class="navbar-header">
                 <div class="dropdown">
                     <span class="text"><c:out value="${username}" /></span>
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="Настройки">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="<spring:message code="label.settings" />">
                         <i class="glyphicon glyphicon-cog" style="color: white"></i>
                     </a>
                     <ul class="dropdown-menu" id="navbarList">
-                        <li><a href="#"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> Редактировать профиль</a></li>
-                        <li><a href="user_managment"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> Управление пользователями</a></li>
-                        <li><a href="logout"><i class="glyphicon glyphicon-off" aria-hidden="true"></i> Выход</a></li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> <spring:message code="label.editProfile" /></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> <spring:message code="label.userManagement" /></a>
+                        </li>
+                        <li>
+                            <a href="<c:url value="/logout"/>"><i class="glyphicon glyphicon-off" aria-hidden="true"></i> <spring:message code="label.exit" /></a>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><button type="button" class="btn btn-default btn-sm navbar-btn" style="margin-right: 15px"><i class="glyphicon glyphicon-off" aria-hidden="true"></i> Выход</button></li>
+                    <li>
+                        <button type="button" class="btn btn-default btn-sm navbar-btn" onclick="location.href = '/BOtA/logout'" style="margin-right: 15px">
+                            <i class="glyphicon glyphicon-off" aria-hidden="true"></i> <spring:message code="label.exit" />
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -60,17 +59,23 @@
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="box1">
                     <h4><c:out value="${companyName}" /></h4>
-                    <p>Всего активных объектов: <strong>${countAllActiveObjects}</strong></p>
-                    <p>На контроле: <strong>${objectsList.size()}</strong></p>
+                    <p><spring:message code="objects.allActiveObjects" /> <strong>${countAllActiveObjects}</strong></p>
+                    <p><spring:message code="objects.onControl" /> <strong>${objectsList.size()}</strong></p>
                 </div>
                 <div class="box3">
-                    <h4>Объекты строительства</h4>
+                    <h4><spring:message code="objects.objects" /></h4>
                     <a href="#active-obj" data-toggle="collapse" id="active-obj-btn">
-                        <p style="margin-top: 5px;"><i class="glyphicon glyphicon-equalizer" aria-hidden="true"></i> Активные объекты</p>
+                        <p style="margin-top: 5px;">
+                            <i class="glyphicon glyphicon-equalizer" aria-hidden="true"></i> <spring:message code="objects.activeObjects" />
+                        </p>
                     </a>
                     <ul class="nav nav-pills nav-stacked collapse list-info" id="active-obj">
-                        <li><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#addObjModal" onclick="addObject()"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> Добавить</button></li>
-                            <c:forEach var="object" items="${objectsList}" varStatus="сounter">
+                        <li>
+                            <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#addObjModal" onclick="addObject()">
+                                <i class="glyphicon glyphicon-plus" aria-hidden="true"></i> <spring:message code="label.add" />
+                            </button>
+                        </li>
+                        <c:forEach var="object" items="${objectsList}" varStatus="сounter">
                             <li>
                                 <button type="button" class="btn btn-default objSelect" id="objSelect${object.recordId}"
                                         data-id="${object.recordId}"
@@ -87,7 +92,9 @@
                         </c:forEach>
                     </ul>
                     <a href="#finished-obj" data-toggle="collapse" id="finished-obj-btn">
-                        <p style="margin-top: 5px;"><i class="glyphicon glyphicon-check" aria-hidden="true"></i> Завершённые объекты</p>
+                        <p style="margin-top: 5px;">
+                            <i class="glyphicon glyphicon-check" aria-hidden="true"></i> <spring:message code="objects.finishedObjects" />
+                        </p>
                     </a>
                     <ul class="nav nav-pills nav-stacked collapse" id="finished-obj">
                         <c:forEach var="object" items="${finishedObjects}" varStatus="сounter">
@@ -112,14 +119,14 @@
                 <div class="box2">
                     <div class="row subbox0">
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 subbox1">
-                            <p>Объект: <strong id="objNameText"></strong></p>
-                            <p>Адрес: <strong id="objAddressText"></strong></p>
-                            <p>Начало производства работ: <strong id="objDateText"></strong></p>
+                            <p><spring:message code="objects.objectName" /> <strong id="objNameText"></strong></p>
+                            <p><spring:message code="objects.objectAddress" /> <strong id="objAddressText"></strong></p>
+                            <p><spring:message code="objects.objectDate" /> <strong id="objDateText"></strong></p>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 subbox2">
-                            <p>Заказчик: <strong id="objCustomerText"></strong></p>
-                            <p>Генеральный подрядчик: <strong id="objGenBuilderText"></strong></p>
-                            <p>Проектировщик: <strong>не указан</strong></p>
+                            <p><spring:message code="objects.customer" /> <strong id="objCustomerText"></strong></p>
+                            <p><spring:message code="objects.genBuilder" /> <strong id="objGenBuilderText"></strong></p>
+                            <p><spring:message code="objects.designer" /> <strong>не указан</strong></p>
                         </div>
                         <p><button type="submit" class="btn btn-default btn-md respUsersBtn" id=""
                                    data-respId="" 

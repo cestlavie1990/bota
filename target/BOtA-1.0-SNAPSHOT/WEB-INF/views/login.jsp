@@ -12,30 +12,32 @@
         <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />" />
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/style.css" />" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Авторизация</title>
+        <title><spring:message code="login.signIn"/></title>
     </head>
     <body class="page">        
         <div class="auth text-center">
             <form method="POST" action="<c:url value="/j_spring_security_check" />">
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <p>
-                    <label for="user_login">Логин:</label>
-                    <input type="text" name="user_login" class="form-control" placeholder="Введите логин:">
+                    <label for="user_login"><spring:message code="label.login"/></label>
+                    <input type="text" name="user_login" class="form-control" placeholder="<spring:message code="login.inputLogin"/>">
                 </p>                        
                 <p>
-                    <label for="user_password">Пароль:</label>
-                    <input type="password" name="user_password" class="form-control" placeholder="Введите пароль:">
+                    <label for="user_password"><spring:message code="label.password"/></label>
+                    <input type="password" name="user_password" class="form-control" placeholder="<spring:message code="login.inputPassword"/>">
                 </p>
                 <c:if test="${not empty error}">
-                    <p style="color: red; font-weight: bold;">${error}</p>
+                    <p style="color: red; font-weight: bold;"><spring:message code="login.error"/></p>
                 </c:if>
                 <p>
-                    <input name="remember-me" type="checkbox"> Запомнить меня</label>
+                    <input name="remember-me" type="checkbox"> <spring:message code="login.remember"/></label>
                 </p> 
-                <button type="submit" class="btn btn-default">Вход</button>
-                <button type="button" class="btn btn-default" onclick="location.href = '/BOtA/registration'">Регистрация</button>
+                <button type="submit" class="btn btn-default"><spring:message code="login.signIn"/></button>
+                <button type="button" class="btn btn-default" onclick="location.href = '/BOtA/registration'">
+                    <spring:message code="label.registration"/>
+                </button>
             </form>
-            <a href="#">Забыли пароль?</a>            
+            <a href="#"><spring:message code="login.forgotPass"/></a>            
         </div>
     </body>
 </html>

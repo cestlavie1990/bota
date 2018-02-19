@@ -25,7 +25,7 @@
                     </a>
                     <ul class="dropdown-menu" id="navbarList">
                         <li><a href="#"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> Редактировать профиль</a></li>
-                        <li><a href="user_managment"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> Управление пользователями</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> Управление пользователями</a></li>
                         <li><a href="<c:url value="/logout"/>"><i class="glyphicon glyphicon-off" aria-hidden="true"></i> Выход</a></li>
                     </ul>
                 </div>
@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <button type="button" class="btn btn-default btn-sm navbar-btn" style="margin-right: 15px">
+                        <button type="button" class="btn btn-default btn-sm navbar-btn" onclick="location.href = '/BOtA/logout'" style="margin-right: 15px">
                             <i class="glyphicon glyphicon-off" aria-hidden="true"></i> Выход
                         </button>
                     </li>

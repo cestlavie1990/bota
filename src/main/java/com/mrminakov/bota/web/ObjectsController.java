@@ -46,10 +46,4 @@ public class ObjectsController {
 
         return "objects";
     }
-
-    /*@RequestMapping(value = "/objects", method = RequestMethod.GET)
-    public String listObjects(Map<String, Object> map) {
-        map.put("objectsList", objectsService.getObjects());
-        return "objects";
-    }*/
 }

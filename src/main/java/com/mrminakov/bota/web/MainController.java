@@ -35,8 +35,8 @@ public class MainController {
             UserDetails userDetails = (UserDetails) auth.getPrincipal();
             Users user = usersService.getByUsername(userDetails.getUsername());
             Companies company = user.getRecordIdCompany();
-            String mainURL = company.getCompanyLogin();
-            return "redirect:company/" + mainURL;
+            String mainURL = "company/" + company.getCompanyLogin();
+            return "redirect:" + mainURL;
         }
         return "main";
     }
@@ -47,7 +47,7 @@ public class MainController {
         if (company != null) {
             return "main";
         } else {
-            return "redirect:objects";
+            return "redirect:main";
         }
     }
 }
