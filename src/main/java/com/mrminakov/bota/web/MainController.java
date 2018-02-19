@@ -36,12 +36,12 @@ public class MainController {
             Users user = usersService.getByUsername(userDetails.getUsername());
             Companies company = user.getRecordIdCompany();
             String mainURL = company.getCompanyLogin();
-            return "redirect:" + mainURL;
+            return "redirect:company/" + mainURL;
         }
         return "main";
     }
 
-    @RequestMapping(value = "/{companyLogin}", method = RequestMethod.GET)
+    @RequestMapping(value = "/company/{companyLogin}", method = RequestMethod.GET)
     public String mainLogged(@PathVariable("companyLogin") String companyLogin) {
         Companies company = companiesService.getByCompanyLogin(companyLogin);
         if (company != null) {
