@@ -1,12 +1,14 @@
 package com.mrminakov.bota.web;
 
 import com.mrminakov.bota.domain.Companies;
+import com.mrminakov.bota.domain.Objects;
 import com.mrminakov.bota.domain.Users;
 import com.mrminakov.bota.service.interfaces.ObjectsService;
 import com.mrminakov.bota.service.interfaces.UsersService;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,9 +39,10 @@ public class ObjectsController {
 
         String companyName = company.getName();
         String username = user.getName();
-        Integer countAllActiveObjects = objectsService.getObjects().size();
+        List<Objects> objectsList = objectsService.getObjects();
+        Integer countAllActiveObjects = objectsList.size();
 
-        map.put("objectsList", objectsService.getObjects());
+        map.put("objectsList", objectsList);
         map.put("username", username);
         map.put("companyName", companyName);
         map.put("countAllActiveObjects", countAllActiveObjects);

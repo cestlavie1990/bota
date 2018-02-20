@@ -31,13 +31,19 @@
                     </a>
                     <ul class="dropdown-menu" id="navbarList">
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> <spring:message code="label.editProfile" /></a>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> <spring:message code="label.editProfile" />
+                            </a>
                         </li>
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> <spring:message code="label.userManagement" /></a>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-plus" aria-hidden="true"></i> <spring:message code="label.userManagement" />
+                            </a>
                         </li>
                         <li>
-                            <a href="<c:url value="/logout"/>"><i class="glyphicon glyphicon-off" aria-hidden="true"></i> <spring:message code="label.exit" /></a>
+                            <a href="<c:url value="/logout" />">
+                                <i class="glyphicon glyphicon-off" aria-hidden="true"></i> <spring:message code="label.exit" />
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -59,8 +65,8 @@
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="box1">
                     <h4><c:out value="${companyName}" /></h4>
-                    <p><spring:message code="objects.allActiveObjects" /> <strong>${countAllActiveObjects}</strong></p>
-                    <p><spring:message code="objects.onControl" /> <strong>${objectsList.size()}</strong></p>
+                    <p><spring:message code="objects.allActiveObjects" />: <strong>${countAllActiveObjects}</strong></p>
+                    <p><spring:message code="objects.onControl" />: <strong>${objectsList.size()}</strong></p>
                 </div>
                 <div class="box3">
                     <h4><spring:message code="objects.objects" /></h4>
@@ -119,20 +125,22 @@
                 <div class="box2">
                     <div class="row subbox0">
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 subbox1">
-                            <p><spring:message code="objects.objectName" /> <strong id="objNameText"></strong></p>
-                            <p><spring:message code="objects.objectAddress" /> <strong id="objAddressText"></strong></p>
-                            <p><spring:message code="objects.objectDate" /> <strong id="objDateText"></strong></p>
+                            <p><spring:message code="objects.objectName" />: <strong id="objNameText"></strong></p>
+                            <p><spring:message code="objects.objectAddress" />: <strong id="objAddressText"></strong></p>
+                            <p><spring:message code="objects.objectDate" />: <strong id="objDateText"></strong></p>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 subbox2">
-                            <p><spring:message code="objects.customer" /> <strong id="objCustomerText"></strong></p>
-                            <p><spring:message code="objects.genBuilder" /> <strong id="objGenBuilderText"></strong></p>
-                            <p><spring:message code="objects.designer" /> <strong>не указан</strong></p>
+                            <p><spring:message code="objects.customer" />: <strong id="objCustomerText"></strong></p>
+                            <p><spring:message code="objects.genBuilder" />: <strong id="objGenBuilderText"></strong></p>
+                            <p><spring:message code="objects.designer" />: <strong>не указан</strong></p>
                         </div>
-                        <p><button type="submit" class="btn btn-default btn-md respUsersBtn" id=""
+                        <p>
+                            <button type="submit" class="btn btn-default btn-md respUsersBtn" id=""
                                    data-respId="" 
                                    data-respKey="" 
                                    data-respName="">
-                                <i class="glyphicon glyphicon-user" aria-hidden="true"></i> Ответственные за объект</button>
+                                <i class="glyphicon glyphicon-user" aria-hidden="true"></i> <spring:message code="objects.resps" />
+                            </button>
                         </p>
                         <button type="button" class="btn btn-default btn-md editObjBtn" id="" 
                                 data-toggle="modal" 
@@ -144,7 +152,7 @@
                                 data-editCustomer="" 
                                 data-editGenBuilder="" 
                                 data-editDate="">
-                            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> Изменить</button>
+                            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> <spring:message code="label.edit" /></button>
                         <button type="button" class="btn btn-default btn-md changeStatusBtn" id=""
                                 data-toggle="modal" 
                                 data-target="#changeStatus" 
@@ -159,11 +167,16 @@
                                 data-delId="" 
                                 data-delKey="" 
                                 data-delName="">
-                            <i class="glyphicon glyphicon-minus" aria-hidden="true"></i> Удалить</button>
+                            <i class="glyphicon glyphicon-minus" aria-hidden="true"></i> <spring:message code="label.delete" />
+                        </button>
                     </div>
                 </div>
                 <div class="box4">
-                    <p><button type="submit" class="btn btn-default btn-md"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> Добавить участок</button></p>
+                    <p>
+                        <button type="submit" class="btn btn-default btn-md">
+                            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i> <spring:message code="objects.addPlace" />
+                        </button>
+                    </p>
                 </div>
             </div>
         </div>
@@ -174,11 +187,11 @@
             <div class="modal-content text-center">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4>Ответственные на объекте</h4>
+                    <h4><spring:message code="objects.resps" /></h4>
                 </div>
                 <div class="modal-body" id="respModalBody" style="color: #2D2D30"></div>
                 <div class="modal-footer" id="respModalFooter" style="color: #2D2D30; text-align: center">
-                    <button type="reset" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <button type="reset" class="btn btn-default" data-dismiss="modal"><spring:message code="label.close" /></button>
                 </div>
             </div>
         </div>
@@ -200,9 +213,12 @@
                         <input type="hidden" id="delRespUsrId" name="userId" value="">
                         <input type="hidden" id="delRespObjId" name="objectId" value="">
                         <input type="hidden" id="delRespObjKey" name="objectKey" value="">
-                        <button type="submit" class="btn btn-default" name="btnAction" value="deleteRespUser">Удалить</button>
-                        <button type="reset" class="btn btn-default btnCancelDelRespUser" 
-                                data-dismiss="modal">Отмена</button>
+                        <button type="submit" class="btn btn-default" name="btnAction" value="deleteRespUser">
+                            <spring:message code="label.delete" />
+                        </button>
+                        <button type="reset" class="btn btn-default btnCancelDelRespUser" data-dismiss="modal">
+                            <spring:message code="label.cancel" />
+                        </button>
                     </form>
                 </div>
             </div>
@@ -223,8 +239,12 @@
                         <input type="hidden" id="delObjectId" name="objectId" value="">
                         <input type="hidden" id="delObjectKey" name="objectKey" value="">
                         <p>
-                            <button type="submit" class="btn btn-default" name="btnAction" value="delete">Удалить</button>
-                            <button type="reset" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                            <button type="submit" class="btn btn-default" name="btnAction" value="delete">
+                                <spring:message code="label.delete" />
+                            </button>
+                            <button type="reset" class="btn btn-default" data-dismiss="modal">
+                                <spring:message code="label.cancel" />
+                            </button>
                         </p>
                     </form>
                 </div>
@@ -264,7 +284,9 @@
                             <input type="text" name="editDateStartObj" class="form-control" id="editDateStartObj" value="" required>
                         </p>
                         <p>
-                            <button type="submit" class="btn btn-default" id="btnEditObj" name="btnAction" value="edit">Изменить</button>
+                            <button type="submit" class="btn btn-default" id="btnEditObj" name="btnAction" value="edit">
+                                <spring:message code="label.edit" />
+                            </button>
                         </p>
                     </form>
                 </div>
@@ -286,8 +308,12 @@
                         <input type="hidden" id="chStatusObjectId" name="objectId" value="">
                         <input type="hidden" id="chStatusObjectKey" name="objectKey" value="">
                         <p>
-                            <button type="submit" class="btn btn-default" id="btnSubmitChangeStatus" name="btnAction" value="">Изменить</button>
-                            <button type="reset" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                            <button type="submit" class="btn btn-default" id="btnSubmitChangeStatus" name="btnAction" value="">
+                                <spring:message code="label.edit" />
+                            </button>
+                            <button type="reset" class="btn btn-default" data-dismiss="modal">
+                                <spring:message code="label.cancel" />
+                            </button>
                         </p>
                     </form>
                 </div>
@@ -306,7 +332,9 @@
                     <p id="resultMessageBody"></p>
                 </div>
                 <div class="modal-footer" id="resultModalFooter" style="color: #2D2D30; text-align: center">
-                    <button type="button" class="btn btn-default" onclick="refreshPage()">Закрыть</button>
+                    <button type="button" class="btn btn-default" onclick="refreshPage()">
+                        <spring:message code="label.close" />
+                    </button>
                 </div>
             </div>
         </div>

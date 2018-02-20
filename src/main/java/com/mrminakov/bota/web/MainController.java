@@ -4,7 +4,6 @@ import com.mrminakov.bota.domain.Companies;
 import com.mrminakov.bota.domain.Users;
 import com.mrminakov.bota.service.interfaces.CompaniesService;
 import com.mrminakov.bota.service.interfaces.UsersService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
