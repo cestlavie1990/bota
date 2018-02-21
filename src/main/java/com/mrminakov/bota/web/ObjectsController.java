@@ -5,7 +5,6 @@ import com.mrminakov.bota.domain.Objects;
 import com.mrminakov.bota.domain.Users;
 import com.mrminakov.bota.service.interfaces.ObjectsService;
 import com.mrminakov.bota.service.interfaces.UsersService;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +37,7 @@ public class ObjectsController {
         Companies company = user.getRecordIdCompany();
 
         String companyName = company.getName();
-        String username = user.getName();
+        String username = user.getUsername();
         List<Objects> objectsList = objectsService.getObjects();
         Integer countAllActiveObjects = objectsList.size();
 

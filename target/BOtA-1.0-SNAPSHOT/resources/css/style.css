@@ -171,3 +171,22 @@ html {
     color: red;
     font-size: small;
 }
+
+/*===============================main=======================================*/
+
+.main-label {
+    margin-top: 65px;
+    background-image: url("http://localhost:8080/BOtA/resources/images/HSEB-Slider.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    padding: 75px 0 75px 0;
+    background-color: white;
+}
+
+.main-about {
+    margin: 15px 15% 15px 15%;
+    padding: 15px 10px 15px 10px;
+    background-color: white;
+}

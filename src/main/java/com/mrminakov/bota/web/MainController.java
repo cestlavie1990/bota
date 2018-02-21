@@ -4,6 +4,7 @@ import com.mrminakov.bota.domain.Companies;
 import com.mrminakov.bota.domain.Users;
 import com.mrminakov.bota.service.interfaces.CompaniesService;
 import com.mrminakov.bota.service.interfaces.UsersService;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -28,22 +29,28 @@ public class MainController {
     private CompaniesService companiesService;
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
-    public String main() {
+    public String main(Map<String, Object> map) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             UserDetails userDetails = (UserDetails) auth.getPrincipal();
             Users user = usersService.getByUsername(userDetails.getUsername());
+
             Companies company = user.getRecordIdCompany();
             String mainURL = "company/" + company.getCompanyLogin();
+
             return "redirect:" + mainURL;
         }
         return "main";
     }
 
     @RequestMapping(value = "/company/{companyLogin}", method = RequestMethod.GET)
-    public String mainLogged(@PathVariable("companyLogin") String companyLogin) {
+    public String mainLogged(@PathVariable("companyLogin") String companyLogin, Map<String, Object> map) {
         Companies company = companiesService.getByCompanyLogin(companyLogin);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) auth.getPrincipal();
         if (company != null) {
+            map.put("username", userDetails.getUsername());
+            map.put("companyName", company.getName());
             return "main";
         } else {
             return "redirect:main";

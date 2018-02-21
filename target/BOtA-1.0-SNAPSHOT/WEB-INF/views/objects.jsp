@@ -51,7 +51,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <button type="button" class="btn btn-default btn-sm navbar-btn" onclick="location.href = '/BOtA/logout'" style="margin-right: 15px">
+                        <button type="button" class="btn btn-default btn-sm navbar-btn" onclick="location.href = '${pageContext.request.contextPath}/logout'" style="margin-right: 15px">
                             <i class="glyphicon glyphicon-off" aria-hidden="true"></i> <spring:message code="label.exit" />
                         </button>
                     </li>
@@ -64,7 +64,7 @@
         <div class="row text-center">
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="box1">
-                    <h4><c:out value="${companyName}" /></h4>
+                    <h4><a href="${pageContext.request.contextPath}/main"><c:out value="${companyName}" /></a></h4>
                     <p><spring:message code="objects.allActiveObjects" />: <strong>${countAllActiveObjects}</strong></p>
                     <p><spring:message code="objects.onControl" />: <strong>${objectsList.size()}</strong></p>
                 </div>
