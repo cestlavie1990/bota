@@ -52,26 +52,49 @@
         </div>
         <div class="main-about">
             <h3>О компании</h3>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
+            <button type="button" class="btn btn-default btn-md" id="addInfoCompBtn" 
+                    data-toggle="modal" 
+                    data-target="#addInfoCompModal" >Добавить информацию</button> 
         </div>
         <div class="main-about">
             <h3>Основные направления деятельности</h3>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
+            <button type="button" class="btn btn-default btn-md">Добавить информацию</button> 
         </div>
         <div class="main-about">
             <h3>Контактная информация</h3>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
-            <p>бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла</p>
+            <button type="button" class="btn btn-default btn-md">Добавить информацию</button> 
+        </div>
+    </div>
+
+    <div class="modal fade" id="addInfoCompModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content text-center">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4>Добавить описание компании</h4>
+                </div>
+                <div class="modal-body" style="color: #2D2D30">
+                    <form>
+                        <p>
+                            <textarea class="form-control" rows="8" required style="resize: vertical"></textarea>
+                        </p>
+                        <p>
+                            <button type="submit" class="btn btn-default" id="btnSubmitaddInfoComp" name="btnAction" value="">
+                                <spring:message code="label.add" />
+                            </button>
+                            <button type="reset" class="btn btn-default" data-dismiss="modal">
+                                <spring:message code="label.cancel" />
+                            </button>
+                        </p>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+<script>
+    $('#addInfoCompBtn').click(function () {
+
+    });
+</script>
 </html>
